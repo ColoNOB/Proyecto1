@@ -1,0 +1,39 @@
+<div class="container">
+    <div class=" mb-3 col-3 mx-auto logo">
+      <img src="../../assets/internet.png" alt="Logo Internet" class="logo2">
+    </div>
+    <div>
+      <h1>Log In</h1>
+    </div>
+    <form [formGroup]="formUser" (ngSubmit)="procesar()" class="needs-validation">
+      <div class="form-floating mb-3 col-6 mx-auto">
+       <input formControlName="email" type="email" class="form-control" placeholder="name@example.com">
+        <label for="floatingInput">Email</label>
+        <!--
+        <div class="alert alert-danger mt-2" [hidden]="email.valid || email.pristine">
+          Elige un correo válido
+        </div>
+        -->
+      </div>
+      <div class="form-floating col-6 mx-auto">
+        <input type="password" class="form-control" formControlName="pass" placeholder="Password">
+        <label class="form-label">Password</label>
+        <!--
+        <div class="alert alert-danger mt-2" [hidden]="pass.pristine || pass.valid">
+          Debe ingresar una contraseña
+        </div>
+        -->
+      </div>
+      <div class="mb-3 col-6 mx-auto">
+        <p class="olvidaste"><a routerLink="/forgot">¿Olvidaste tu contraseña?</a></p>
+      </div>
+      <div class="mb-3 col-6 mx-auto">
+        <button type="button" class="btn btn-primary col-12 boton" (click)="procesar()">Iniciar Sesión</button>
+      </div>
+      <div class="col-6 mx-auto">
+        <p class="cuenta">¿No tiene una cuenta? <b><a href="">Abrir cuenta</a></b></p>
+      </div>
+    </form>
+    <app-forgot (actualizarContrasena)="actualizarContrasena($event)"></app-forgot>
+  </div>
+ 

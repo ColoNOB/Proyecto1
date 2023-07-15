@@ -1,0 +1,25 @@
+<!-- <h1>Cambiar Contraseña</h1>
+
+<p>Cambie la contraseña de su cuenta a continuación. La seguridad de su contraseña es importante para el alojamiento web. Recomendamos fervientemente usar el generador de contraseñas para crear su contraseña. Siga las sugerencias a continuación para mantener la seguridad de su contraseña.
+    <br>
+    <strong>Nota: </strong> si modifica su contraseña, finalizará su sesión actual.
+</p> -->
+
+<!-- cambio-contrasena.component.html -->
+
+<h2>Cambio de Contraseña</h2>
+
+<div>
+  <label for="contrasenaActual">Contraseña Actual:</label>
+  <input type="password" id="contrasenaActual" [(ngModel)]="contrasenaActual">
+</div>
+
+<div>
+  <label for="contrasenaNueva">Contraseña Nueva:</label>
+  <input type="password" id="contrasenaNueva" [(ngModel)]="contrasenaNueva">
+</div>
+
+<button (click)="guardarCambios()">Guardar</button>
+
+
+
