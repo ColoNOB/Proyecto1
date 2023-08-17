@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { ForgotComponent } from '../forgot/forgot.component';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
   formUser: FormGroup;
   usuarios: any[]=[];
 
-    constructor (private router: Router) {
+    constructor (private route: Router) {
       this.formUser = new FormGroup({
         user: new FormControl('Valor que adopta user al construirse la clase'),
         email: new FormControl('pepo@gmail.com'),
@@ -52,7 +53,7 @@ export class LoginComponent {
   
       console.log(usuarioValido);
       if (usuarioValido) {
-        this.router.navigate(['/home'], {});
+        this.route.navigate(['/home'], {});
       } else {
         Swal.fire({
           icon: 'error',
@@ -62,13 +63,13 @@ export class LoginComponent {
       }
     }
 
-    actualizarContrasena(event: { contrasenaActual: string, contrasenaNueva: string }): void {
-      const { contrasenaActual, contrasenaNueva } = event;
-      const usuario = this.usuarios.find(u => u.pass === contrasenaActual);
+    actualizarContrasena(event: { email: string, nuevaContrasena: string }): void {
+      const { email, nuevaContrasena } = event;
+      const usuario = this.usuarios.find(u => u.email === email);
     
       if (usuario) {
-        usuario.pass = contrasenaNueva;
-        console.log(this.usuarios); // Mostrar el array actualizado en la consola
+        usuario.pass = nuevaContrasena;
+        console.log(this.usuarios);
       }
     }
 

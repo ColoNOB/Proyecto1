@@ -9,17 +9,10 @@
 
 <h2>Cambio de Contraseña</h2>
 
-<div>
-  <label for="contrasenaActual">Contraseña Actual:</label>
-  <input type="password" id="contrasenaActual" [(ngModel)]="contrasenaActual">
-</div>
+<input type="email" [(ngModel)]="email">
+<input type="password" [(ngModel)]="nuevaContrasena">
+<button (click)="cambiarContrasena(email, nuevaContrasena)">Cambiar Contraseña</button>
 
-<div>
-  <label for="contrasenaNueva">Contraseña Nueva:</label>
-  <input type="password" id="contrasenaNueva" [(ngModel)]="contrasenaNueva">
-</div>
-
-<button (click)="guardarCambios()">Guardar</button>
 
 
 
